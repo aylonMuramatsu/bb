@@ -6,9 +6,14 @@ import Logo from '~/assets/logo.png'
 import ProfileImg from '~/assets/profile.jpg'
 import Button from '~/components/Button/index';
 import BottomPassword from '~/components/BottomPassword/index';
+import { BackHandler } from 'react-native';
 
 const Login = () => {
   const [ passwordVisible, setPasswordVisible ] = useState(false) 
+  BackHandler.addEventListener('hardwareBackPress', function() {
+   setPasswordVisible(false)
+   return true;
+  });
 
   return (
     <UI.Container>
